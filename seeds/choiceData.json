@@ -1,0 +1,78 @@
+[
+  {
+    "name": "home" ,
+    "idea_id": 1
+  },
+  {
+    "name": "fast food" ,
+    "idea_id": 1
+  },
+  {
+    "name": "friends" ,
+    "idea_id": 1
+  },
+  {
+    "name": "fancy restaurant" ,
+    "idea_id": 1
+  },
+  {
+    "name": "delivery" ,
+    "idea_id": 1
+  },
+  {
+    "name": "lab" ,
+    "idea_id": 2
+  },
+  {
+    "name": "great dane" ,
+    "idea_id": 2
+  },
+  {
+    "name": "pom" ,
+    "idea_id": 2
+  },
+  {
+    "name": "golden" ,
+    "idea_id": 2
+  },
+  {
+    "name": "chihuahua" ,
+    "idea_id": 2
+  },
+  {
+    "name": "avengers" ,
+    "idea_id": 3
+  },
+  {
+    "name": "thor" ,
+    "idea_id": 3
+  },
+  {
+    "name": "black panther" ,
+    "idea_id": 3
+  },
+  {
+    "name": "guardians of the galaxy" ,
+    "idea_id": 3
+  },
+  {
+    "name": "sleep" ,
+    "idea_id": 4
+  },
+  {
+    "name": "beach" ,
+    "idea_id": 4
+  },
+  {
+    "name": "dance" ,
+    "idea_id": 4
+  },
+  {
+    "name": "explore" ,
+    "idea_id": 4
+  },
+  {
+    "name": "hike" ,
+    "idea_id": 4
+  }
+]
