@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Idea, User } = require('../models');
+const { Idea, User, Choice } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -33,6 +33,9 @@ router.get('/idea/:id', async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Choice,
+        }
       ],
     });
 
