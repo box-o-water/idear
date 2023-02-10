@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { YourCustomModel } = require('../../models');
+const { YourModel } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
-    res.status(200).json({message: "Success"})
+    res.status(200).json({ message: 'Success' });
   } catch (err) {
     res.status(400).json(err);
   }
@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    res.status(200).json({message: "logged in"})
+    res.status(200).json({ message: 'logged in' });
   } catch (err) {
     res.status(400).json(err);
   }

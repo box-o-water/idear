@@ -1,0 +1,18 @@
+[
+  {
+    "idea": "Where should I eat tonight?",
+    "user_id": 1
+  },
+  {
+    "idea": "Which dog should I get?",
+    "user_id": 2
+  },
+  {
+    "idea": "What movie should I watch?",
+    "user_id": 3
+  },
+  {
+    "idea": "What should I do on vacation?",
+    "user_id": 4
+  }
+]
