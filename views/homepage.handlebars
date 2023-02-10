@@ -1,0 +1,6 @@
+{{#each ideas as |idea| }}
+<div class="box">
+  <a href="/idea/{{idea.id}}">{{idea.idea}}</a>
+  {{!-- <p>Created by {{idea.user.name}} on {{format_date post.date_created}}</p> --}}
+</div>
+{{/each}}

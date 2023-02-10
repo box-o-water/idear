@@ -1,16 +1,11 @@
-/*************************************************
-* 
-* The purpose of this file is to combine all of your 
-* api routes into a single router then pass it up to 
-* main routes index file.
-*
-**************************************************/
-
 const router = require('express').Router();
-// rename this
-const apiRoutes = require('./apiRoutes');
 
-// rename this
-router.use('/other', apiRoutes);
+// const userRoutes = require('./userRoutes');
+const ideaRoutes = require('./ideaRoutes');
+// const choiceRoutes = require('./choiceRoutes');
+
+// router.use('/users', userRoutes);
+router.use('/ideas', ideaRoutes);
+// router.use('/choices', choiceRoutes);
 
 module.exports = router;
