@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Idea } = require('../../models');
 
-router.post('/', async (req, res) => {
+router.post('/idea', async (req, res) => {
   try {
     res.status(200).json({ message: 'Success' });
   } catch (err) {
