@@ -1,6 +1,17 @@
 const router = require('express').Router();
 const { Idea, User, Choice } = require('../models');
 
+router.put('/vote', async (req, res) => {
+  try {
+    console.log(req.data); 
+    const data = await Choice.increment('votes', { by: 1, where: { id: 17 }})
+    res.status(200).json({ message: "success" });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+
 router.get('/', async (req, res) => {
   try {
     // Get all ideas and JOIN with user data
