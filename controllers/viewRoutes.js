@@ -1,15 +1,25 @@
 const router = require('express').Router();
+const { request } = require('express');
 const { Idea, User, Choice } = require('../models');
 
 router.put('/vote', async (req, res) => {
   try {
-    if (req.body.up === "true"){
+    let choice_id = req.body.id.split("_")[1]; 
+    if (req.body.up === "true" && req.body.down ==="0" ){
     console.log(req.data); 
-    await Choice.increment('votes', { by: 1, where: { id: 17 }})
-    } else if (req.body.down === "true"){
-    await Choice.decrement('votes', { by: 1, where: { id: 17 }})
-    }
-    res.status(200).json({ message: req.body });
+    await Choice.increment('votes', { by: 1, where: { id: choice_id }})
+    } else if (req.body.down === "true" && req.body.down ==="0"){
+    await Choice.decrement('votes', { by: 1, where: { id: choice_id }})
+    } else if (req.body.up === "false" && req.body.down ==="0"){
+      await Choice.decrement('votes', { by: 1, where: { id: choice_id }})
+    } else if (req.body.down === "false" && req.body.down ==="0"){
+      await Choice.increment('votes', { by: 1, where: { id: choice_id }})
+    }  else if (req.body.up === "false" && req.body.down ==="true"){
+      await Choice.decrement('votes', { by: 2, where: { id: choice_id }})
+    } 
+
+
+    res.status(200).json({ message: choice_id });
   } catch (err) {
     res.status(400).json(err);
   }
