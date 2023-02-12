@@ -3,9 +3,13 @@ const { Idea, User, Choice } = require('../models');
 
 router.put('/vote', async (req, res) => {
   try {
+    if (req.body.up === "true"){
     console.log(req.data); 
-    const data = await Choice.increment('votes', { by: 1, where: { id: 17 }})
-    res.status(200).json({ message: "success" });
+    await Choice.increment('votes', { by: 1, where: { id: 17 }})
+    } else if (req.body.down === "true"){
+    await Choice.decrement('votes', { by: 1, where: { id: 17 }})
+    }
+    res.status(200).json({ message: req.body });
   } catch (err) {
     res.status(400).json(err);
   }
