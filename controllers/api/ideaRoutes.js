@@ -19,11 +19,11 @@ router.delete('/:id', withAuth, async (req, res) => {
     const ideaData = await Idea.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id
-      }
+        user_id: req.session.user_id,
+      },
     });
     if (!ideaData) {
-      res.status(404).json({ message: 'No project found with this id!' });
+      res.status(404).json({ message: 'No idea found with this id!' });
       return;
     }
 
@@ -31,6 +31,6 @@ router.delete('/:id', withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-})
+});
 
 module.exports = router;
