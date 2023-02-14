@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const logger = require('../../public/js/logger');
 
 router.post('/', async (req, res) => {
   try {
@@ -17,6 +18,7 @@ router.post('/', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
+  logger.debug('Someone is trying to log in');
   try {
     const userData = await User.findOne({ where: { name: req.body.name } });
 
