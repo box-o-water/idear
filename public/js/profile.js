@@ -1,24 +1,24 @@
 const newFormHandler = async (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    const idea = document.querySelector('#project-desc').value.trim();
-    // const description = document.querySelector('#project-desc').value.trim();
+  const idea = document.querySelector('#idea-text').value.trim();
+  // const description = document.querySelector('#idea-text').value.trim();
 
-    if (idea) {
-      const response = await fetch(`/api/ideas`, {
-        method: 'POST',
-        body: JSON.stringify({ idea }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-  
-      if (response.ok) {
-        document.location.replace('/profile');
-      } else {
-        alert('Failed to create idea');
-      }
+  if (idea) {
+    const response = await fetch(`/api/ideas`, {
+      method: 'POST',
+      body: JSON.stringify({ idea }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
+      alert('Failed to create idea');
     }
+  }
 };
 
 const delButtonHandler = async (event) => {
@@ -32,13 +32,15 @@ const delButtonHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert('Failed to delete project');
+      alert('Failed to delete idea');
     }
   }
 };
 
-document.querySelector('.new-project-form')
-.addEventListener('submit', newFormHandler);
+document
+  .querySelector('.new-idea-form')
+  .addEventListener('submit', newFormHandler);
 
-document.querySelector('.project-list')
-.addEventListener('click', delButtonHandler);
+document
+  .querySelector('.idea-list')
+  .addEventListener('click', delButtonHandler);
