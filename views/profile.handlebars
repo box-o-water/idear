@@ -8,19 +8,34 @@
   <div class="col-md-6">
     <h3>Create a New Idear:</h3>
 
-    <form class="form new-project-form">
-      <div class="form-group">
-        <label for="project-desc">idear:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
+    <form class="form new-idea-form" id="new-idea-form">
+      <div class="field">
+        <label for="idea-desc">idear:</label>
+        <textarea class="form-input" type="text" id="idea-desc" name="idea-desc"></textarea>
       </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+      {{!-- <div class="choice-desc field">
+        <textarea placeholder="Choices" type="text" class="form-input" id="choice-desc-one" name="choice-desc"></textarea>
       </div>
+      <div class="choice-desc field">
+        <textarea placeholder="Choices" type="text" class="form-input" id="choice-desc-two" name="choice-desc"></textarea>
+      </div>
+      <div class="choice-desc field">
+        <textarea placeholder="Choices" type="text" id="choice-desc-three" name="choice-desc"></textarea>
+      </div>
+      <div class="choice-desc field">
+      <textarea placeholder="Choices"  type="text" id="choice-desc-four" name="choice-desc"></textarea>
+      </div>
+      <div class="choice-desc field">
+        <textarea placeholder="Choices" type="text" id="choice-desc-five" name="choice-desc"></textarea>
+      </div>
+      <div class="field is-grouped">
+        <button type="submit" class="btn btn-primary" id="create-idea">Create</button>
+      </div> --}}
     </form>
   </div>
 
   {{#if ideas.length}}
-  <div class="col-md-6 project-list">
+  <div class="col-md-6 idea-list">
     <h3>Current Idears:</h3>
 
     {{#each ideas as |idea|}}
@@ -37,4 +52,5 @@
   {{/if}}
 </div>
 
-<script src="./js/profile.js"></script>
+<script src="../public/js/newIdea.js"></script>
+<script 

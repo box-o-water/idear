@@ -1,12 +1,20 @@
 const router = require('express').Router();
 const { Idea } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.post('/idea', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
-    res.status(200).json({ message: 'Success' });
+    const newIdea = await Idea.create({ 
+    ...req.body,
+    user_id: req.session.user_id,
+  });
+
+    res.status(200).json(newIdea, { message: 'Success' });
   } catch (err) {
     res.status(400).json(err);
   }
 });
+
+
 
 module.exports = router;
