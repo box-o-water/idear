@@ -1,7 +1,7 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
 
-    const idea = document.querySelector('#project-name').value.trim();
+    const idea = document.querySelector('#project-desc').value.trim();
     // const description = document.querySelector('#project-desc').value.trim();
 
     if (idea) {
@@ -21,5 +21,5 @@ const newFormHandler = async (event) => {
     }
 };
 
-document.querySelector('#new-project-form')
+document.querySelector('.new-project-form')
 .addEventListener('submit', newFormHandler);
