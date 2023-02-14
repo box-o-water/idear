@@ -2,7 +2,7 @@ const winston = require('winston');
 
 const options = {
   file: {
-    level: 'info',
+    level: 'debug',
     filename: './logs/app.log',
     handleExceptions: true,
     json: true,
