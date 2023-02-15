@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const {User, Idea } = require('../../models');
-// const { User, Idea, Choice } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { User } = require('../../models');
+const logger = require('../../public/js/logger');
 
 router.post('/', async (req, res) => {
+  logger.info('Attempting to create a new user');
   try {
     const userData = await User.create(req.body);
 
@@ -12,29 +12,30 @@ router.post('/', async (req, res) => {
       req.session.logged_in = true;
 
       res.status(200).json(userData);
+      logger.info('A valid user was created');
     });
   } catch (err) {
     res.status(400).json(err);
+    logger.error('A bad request was sent to the user post route');
   }
 });
 
 router.post('/login', async (req, res) => {
+  logger.info('Attempting to log in a user');
   try {
     const userData = await User.findOne({ where: { name: req.body.name } });
 
     if (!userData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect name or password, please try again' });
+      res.status(400).json({ message: 'Incorrect name or password, please try again' });
+      logger.warn('A user attempted to log in with an incorrect name or password');
       return;
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect name or password, please try again' });
+      res.status(400).json({ message: 'Incorrect name or password, please try again' });
+      logger.warn('A user attempted to log in with an incorrect name or password');
       return;
     }
 
@@ -43,27 +44,24 @@ router.post('/login', async (req, res) => {
       req.session.logged_in = true;
 
       res.json({ user: userData, message: 'You are now logged in!' });
+      logger.info('A user successfully logged in');
     });
   } catch (err) {
     res.status(400).json(err);
-  }
-});
-
-router.post('/login', async (req, res) => {
-  try {
-    res.status(200).json({ message: 'logged in' });
-  } catch (err) {
-    res.status(400).json(err);
+    logger.error('A bad request was sent to the user login post route');
   }
 });
 
 router.post('/logout', (req, res) => {
+  logger.info('Attempting to log out a user');
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
+      logger.info('A user was successfully logged out');
     });
   } else {
     res.status(404).end();
+    logger.warn('An invalid session logged_in id was provided to be logged out');
   }
 });
 
