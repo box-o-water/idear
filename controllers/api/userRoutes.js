@@ -34,13 +34,13 @@ router.post('/login', async (req, res) => {
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
-
+    // Error handling if someone without credentials tries logging in.
     if (!validPassword) {
       res.status(400).json({ message: 'Incorrect name or password, please try again' });
       logger.warn('A user attempted to log in with an incorrect name or password');
       return;
     }
-
+    
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;

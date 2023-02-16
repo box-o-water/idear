@@ -27,7 +27,7 @@ const logger = require('../public/js/logger');
 //   }
 // });
 
-
+// Route to get a list of ideas.
 router.get('/', async (req, res) => {
   logger.info('Attempting to render a list of ideas');
   try {
@@ -56,6 +56,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Route to get a specific 'idea' by its ID in the params.
 router.get('/idea/:id', async (req, res) => {
   logger.info('Attempting to render a specific idea');
   try {
@@ -72,7 +73,7 @@ router.get('/idea/:id', async (req, res) => {
     });
 
     const idea = data.get({ plain: true });
-
+    
     res.render('idea', {
       ...idea,
       logged_in: req.session.logged_in,

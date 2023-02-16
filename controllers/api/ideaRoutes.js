@@ -44,6 +44,7 @@ router.post('/', withAuth, async (req, res) => {
 router.delete('/:id', withAuth, async (req, res) => {
   logger.info('Attempting to delete a specific idea');
   try {
+    // idea.destroy is killing the 'idea' whose 'delete' button was clicked.
     const ideaData = await Idea.destroy({
       where: {
         id: req.params.id,
