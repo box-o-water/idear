@@ -1,9 +1,10 @@
 const sequelize = require('../config/connection');
-const { User, Idea, Choice } = require('../models');
+const { User, Idea, Choice, Vote } = require('../models');
 
 const userData = require('./userData.json');
 const ideaData = require('./ideaData.json');
 const choiceData = require('./choiceData.json');
+const voteData = require('./voteData.json');
 
 console.log(userData);
 console.log(ideaData);
@@ -21,6 +22,10 @@ const seedDatabase = async () => {
   });
 
   await Choice.bulkCreate(choiceData, {
+    returning: true,
+  });
+
+  await Vote.bulkCreate(voteData, {
     returning: true,
   });
 
