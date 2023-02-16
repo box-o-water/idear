@@ -1,19 +1,18 @@
 <div class="box">
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  <p>created by {{user.name}} on {{format_date date_created}}</p>
   <p class="box">{{idea}}</p>
 <form class="box">
   {{#each choices as |choice| }}
-  {{!-- TODO perhaps these shouldn't be buttons --}}
-  <button class="button">{{choice.name}}</button>
-  <div class="test" id="test_{{choice.id}}">
-    <div class="upvote">
-      <a class="upvote" id="{{ choice.upvote }}" title="This is good stuff. Vote it up! (Click again to undo)"></a>
-      <span class="count" title="Total number of votes">{{choice.votes}}</span>
-      <a class="downvote" id="{{ choice.downvote }}" title="This is not useful. Vote it down. (Click again to undo)"></a>
-     </div>
-  </div> 
+    <div class="row">
+      <div class="test" id="test_{{choice.id}}">
+        <div class="upvote">
+          <a class="upvote" id="{{ choice.upvote }}" title="This is good stuff. Vote it up! (Click again to undo)"></a>
+          <span class="count" title="Total number of votes">{{choice.votes}}</span>
+          <a class="downvote" id="{{ choice.downvote }}" title="This is not useful. Vote it down. (Click again to undo)"></a>
+        </div>
+      </div>
+      <label class="button is-hovered mt-4">{{choice.name}}</label>
+  </div>
   {{/each}}
 </form>
 </div>
-
-
