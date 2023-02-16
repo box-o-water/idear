@@ -6,9 +6,9 @@
     <div class="row">
       <div class="test" id="test_{{choice.id}}">
         <div class="upvote">
-          <a class="upvote" title="This is good stuff. Vote it up! (Click again to undo)"></a>
+          <a class="upvote" id="{{ choice.upvote }}" title="This is good stuff. Vote it up! (Click again to undo)"></a>
           <span class="count" title="Total number of votes">{{choice.votes}}</span>
-          <a class="downvote" title="This is not useful. Vote it down. (Click again to undo)"></a>
+          <a class="downvote" id="{{ choice.downvote }}" title="This is not useful. Vote it down. (Click again to undo)"></a>
         </div>
       </div>
       <label class="button is-hovered mt-4">{{choice.name}}</label>
@@ -16,5 +16,3 @@
   {{/each}}
 </form>
 </div>
-
-

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { request } = require('express');
-const { Idea, User, Choice } = require('../models');
+const { Idea, User, Choice, Vote } = require('../models');
 const withAuth = require('../utils/auth');
 const logger = require('../public/js/logger');
 
@@ -71,8 +71,38 @@ router.get('/idea/:id', async (req, res) => {
         },
       ],
     });
-
+    
     const idea = data.get({ plain: true });
+
+  for ( let i = 0; i < idea.choices.length; i++){
+    idea.choices[i]['downvote'] = '';
+    idea.choices[i]['upvote'] = ''; 
+    if (req.session.user_id){ 
+      let user_choices = await Vote.findOne({ where: {
+        user_id: req.session.user_id,
+        choice_id: idea.choices[i].id
+          }, 
+        raw: true
+        }); 
+      console.log(user_choices); 
+      if (user_choices){
+        if (user_choices.vote === 'upvoted'){
+         idea.choices[i]['upvote'] = 'on'; 
+        } else if (user_choices.vote === 'downvoted'){
+         idea.choices[i]['downvote'] = 'on'; 
+        } 
+      }
+    }
+  }
+  console.log(idea.choices); 
+
+    
+    // for ( let i =0; i < idea.choices.length; i ++){
+      
+    //   idea.choices[i]['upvote'] = 'on'; 
+    // } 
+
+    // console.log(idea.choices); 
     
     res.render('idea', {
       ...idea,

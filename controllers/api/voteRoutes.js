@@ -10,7 +10,7 @@ router.put('/', withAuth, async (req, res) => {
         let vote_status = req.body.status; 
         let user_id = req.session.user_id; 
         
-        choice_status = await Vote.findOne({ where: {
+        const choice_status = await Vote.findOne({ where: {
             choice_id: choice_id, 
             user_id: user_id, 
         }
@@ -66,10 +66,12 @@ router.put('/', withAuth, async (req, res) => {
         }
 
         //update choice table with vote count 
-        if (increment){
-            await Choice.increment('votes', { by: change_count_by, where: { id: choice_id }})
-        } else {
-            await Choice.decrement('votes', { by: change_count_by, where: { id: choice_id }})
+        if (change_count_by){
+          if (increment){
+              await Choice.increment('votes', { by: change_count_by, where: { id: choice_id }})
+          } else {
+              await Choice.decrement('votes', { by: change_count_by, where: { id: choice_id }})
+          }
         }
   
       res.status(200).json({ message: "success"});
