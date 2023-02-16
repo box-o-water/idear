@@ -20,8 +20,8 @@ const newFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      console.log(response.json()); 
-      //document.location.replace('/profile');
+      //console.log(response.json()); 
+      document.location.replace('/profile');
     } else {
       alert('Failed to create idea');
     }
