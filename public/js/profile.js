@@ -1,3 +1,4 @@
+// Function handling the posting of a new 'idea'.
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -9,7 +10,7 @@ const newFormHandler = async (event) => {
   const choice4 = document.querySelector('#choice-4').value.trim();
   const choice5 = document.querySelector('#choice-5').value.trim();
   
-
+  // Posts new 'idea' data to idea_db.
   if (idea) {
     const response = await fetch(`/api/ideas`, {
       method: 'POST',
@@ -28,6 +29,7 @@ const newFormHandler = async (event) => {
   }
 };
 
+// Function handling the deletion of an 'idea'in the users profile view.
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
@@ -44,6 +46,7 @@ const delButtonHandler = async (event) => {
   }
 };
 
+// Event handlers for buttons in profile.handlebars.
 document
   .querySelector('.new-idea-form')
   .addEventListener('submit', newFormHandler);

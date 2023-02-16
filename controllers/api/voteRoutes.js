@@ -3,6 +3,7 @@ const { Idea, Choice, Vote } = require('../../models');
 const withAuth = require('../../utils/auth');
 const logger = require('../../public/js/logger');
 
+// Route for adding votes to choices.
 router.put('/', withAuth, async (req, res) => {
     try {
         let choice_id = req.body.id.split("_")[1]; 
@@ -26,7 +27,7 @@ router.put('/', withAuth, async (req, res) => {
         if (vote_status === current_status) {
             res.status(200).json({ message: "Already voted."})
         }
-
+        // Handles vote incrementation.
         let increment = true;
         let change_count_by = 0; 
         if (vote_status === 'upvoted' && current_status == 'unvoted'){
