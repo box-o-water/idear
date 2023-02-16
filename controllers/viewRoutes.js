@@ -82,6 +82,7 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
+// Router that takes users to the login screen.
 router.get('/login', (req, res) => {
   logger.info('Attempting to validate if a specific user is logged in or not');
   // If the user is already logged in, redirect the request to another route
@@ -90,7 +91,7 @@ router.get('/login', (req, res) => {
     logger.info('A users profile was rendered after validating the user is still logged in');
     return;
   }
-
+  // Rendering login.handlebars
   res.render('login');
   logger.info('A logged out user was redirected to login when attempting to view their profile');
 });

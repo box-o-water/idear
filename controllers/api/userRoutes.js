@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User } = require('../../models');
 const logger = require('../../public/js/logger');
 
+// Route for submitting new user data to idea_db.
 router.post('/', async (req, res) => {
   logger.info('Attempting to create a new user');
   try {
@@ -20,6 +21,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Route for logging in as a user.
 router.post('/login', async (req, res) => {
   logger.info('Attempting to log in a user');
   try {
@@ -52,6 +54,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// Route for logging out of a user's session.
 router.post('/logout', (req, res) => {
   logger.info('Attempting to log out a user');
   if (req.session.logged_in) {

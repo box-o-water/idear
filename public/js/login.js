@@ -1,3 +1,4 @@
+// Function handling login.
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -22,6 +23,7 @@ const loginFormHandler = async (event) => {
   }
 };
 
+// Function handling sign up.
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
@@ -43,6 +45,7 @@ const signupFormHandler = async (event) => {
   }
 };
 
+// Event listeners for the buttons in the login.handlebars file.
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
