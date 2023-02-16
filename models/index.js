@@ -1,6 +1,7 @@
 const User = require('./User');
 const Idea = require('./Idea');
 const Choice = require('./Choice');
+const Vote = require('./Vote');
 
 User.hasMany(Idea, {
   foreignKey: 'user_id',
@@ -20,4 +21,17 @@ Choice.belongsTo(Idea, {
   foreignKey: 'idea_id',
 });
 
-module.exports = { User, Idea, Choice };
+User.hasMany(Vote, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
+});
+
+Vote.belongsTo(Choice, {
+  foreignKey: 'choice_id',
+});
+
+Vote.belongsTo(User, {
+  foreignKey: 'user_id',
+});
+
+module.exports = { User, Idea, Choice, Vote };
