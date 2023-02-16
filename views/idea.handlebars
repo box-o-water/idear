@@ -5,7 +5,15 @@
   {{#each choices as |choice| }}
   {{!-- TODO perhaps these shouldn't be buttons --}}
   <button class="button">{{choice.name}}</button>
-
+  <div class="test" id="test_{{choice.id}}">
+    <div class="upvote">
+      <a class="upvote" title="This is good stuff. Vote it up! (Click again to undo)"></a>
+      <span class="count" title="Total number of votes">{{choice.votes}}</span>
+      <a class="downvote" title="This is not useful. Vote it down. (Click again to undo)"></a>
+     </div>
+  </div> 
   {{/each}}
 </form>
 </div>
+
+
