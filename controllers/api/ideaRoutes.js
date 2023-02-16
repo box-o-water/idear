@@ -3,6 +3,7 @@ const { Idea, Choice } = require('../../models');
 const withAuth = require('../../utils/auth');
 const logger = require('../../public/js/logger');
 
+// Route POSTs a new 'idea' to idea_db.
 router.post('/', withAuth, async (req, res) => {
   logger.info('Attempting to create a new idea');
   //res.status(200).json(req.body); 
@@ -39,10 +40,11 @@ router.post('/', withAuth, async (req, res) => {
     logger.error('A bad request was sent to the idea post route');
   }
 });
-
+// Route to delete an 'idea' from idea_db. Logs message when a user deletes an 'idea'.
 router.delete('/:id', withAuth, async (req, res) => {
   logger.info('Attempting to delete a specific idea');
   try {
+    // idea.destroy is killing the 'idea' whose 'delete' button was clicked.
     const ideaData = await Idea.destroy({
       where: {
         id: req.params.id,

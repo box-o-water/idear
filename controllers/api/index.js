@@ -6,6 +6,7 @@ const voteRoutes = require('./voteRoutes');
 const { route } = require('./userRoutes');
 // const choiceRoutes = require('./choiceRoutes');
 
+// Middleware for userRoutes, ideaRoutes, and voteRoutes
 router.use('/users', userRoutes);
 router.use('/ideas', ideaRoutes);
  router.use('/vote', voteRoutes); 

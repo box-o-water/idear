@@ -27,7 +27,7 @@ const logger = require('../public/js/logger');
 //   }
 // });
 
-
+// Route to get a list of ideas.
 router.get('/', async (req, res) => {
   logger.info('Attempting to render a list of ideas');
   try {
@@ -56,6 +56,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Route to get a specific 'idea' by its ID in the params.
 router.get('/idea/:id', async (req, res) => {
   logger.info('Attempting to render a specific idea');
   try {
@@ -72,7 +73,7 @@ router.get('/idea/:id', async (req, res) => {
     });
 
     const idea = data.get({ plain: true });
-
+    
     res.render('idea', {
       ...idea,
       logged_in: req.session.logged_in,
@@ -107,6 +108,7 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
+// Router that takes users to the login screen.
 router.get('/login', (req, res) => {
   logger.info('Attempting to validate if a specific user is logged in or not');
   // If the user is already logged in, redirect the request to another route
@@ -115,7 +117,7 @@ router.get('/login', (req, res) => {
     logger.info('A users profile was rendered after validating the user is still logged in');
     return;
   }
-
+  // Rendering login.handlebars
   res.render('login');
   logger.info('A logged out user was redirected to login when attempting to view their profile');
 });
