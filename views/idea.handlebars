@@ -1,17 +1,23 @@
 <div class="box">
-  <p>created by {{user.name}} on {{format_date date_created}}</p>
+  <p class="is-size-6">created by {{user.name}} on {{format_date date_created}}</p>
+  
   <p class="box">{{idea}}</p>
 <form class="box">
+  {{#if logged_in}}
+    <p></p>
+  {{ else }}
+    <p class="mt-2 mb-2"><a href="/login">login to vote</a></p>
+  {{/if}}
   {{#each choices as |choice| }}
     <div class="row">
-      <div class="test" id="test_{{choice.id}}">
+      <div class="test ml-2" id="test_{{choice.id}}">
         <div class="upvote">
           <a class="upvote" id="{{ choice.upvote }}" title="This is good stuff. Vote it up! (Click again to undo)"></a>
           <span class="count" title="Total number of votes">{{choice.votes}}</span>
           <a class="downvote" id="{{ choice.downvote }}" title="This is not useful. Vote it down. (Click again to undo)"></a>
         </div>
       </div>
-      <label class="button is-hovered mt-4">{{choice.name}}</label>
+      <label class="button is-hovered mt-4 ml-2">{{choice.name}}</label>
   </div>
   {{/each}}
 </form>
