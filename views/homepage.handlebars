@@ -1,7 +1,9 @@
 {{!-- Structure for 'ideas' rendered on the homepage. --}}
 {{#each ideas as |idea| }}
-<div class="box">
+<div class="column">
+      <div class="column is-half">
+        <div class="box">
   <a href="/idea/{{idea.id}}">{{idea.idea}}</a>
-  <p>Created by {{idea.user.name}} on {{format_date idea.date_created}}</p>
-</div>
+  <p>created by {{idea.user.name}} on {{format_date idea.date_created}}</p>
+</div></div></div>
 {{/each}}

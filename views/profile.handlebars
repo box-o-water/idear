@@ -1,48 +1,50 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
+    <h2>welcome, {{name}}.</h2>
   </div>
 </div>
 
 <div class="row mt-4">
   <div class="col-md-6">
-    <h3>Create a New Idear:</h3>
-{{!-- Form for creating new 'idea'. --}}
-    <form class="form new-idea-form">
+    <h3>create a new idear:</h3>
+
+    <form class="form new-idea-form box">
       <div class="form-group">
         <label for="idea-text">idear:</label>
-        <textarea class="form-input" id="idea-text" name="idea-text"></textarea>
+        <textarea class="input" id="idea-text" name="idea-text"></textarea>
       </div>
-      <div class="form-group">
+      <div class="form-group box">
         <label for="choice-1">enter up to 5 choices:</label>
-        <input class="form-input" id="choice-1" name="choice-1"></input>  
-        <input class="form-input" id="choice-2" name="choice-2"></input>
-        <input class="form-input" id="choice-3" name="choice-3"></input>
-        <input class="form-input" id="choice-4" name="choice-4"></input>
-        <input class="form-input" id="choice-5" name="choice-5"></input>
+        <input class="input" id="choice-1" name="choice-1"></input>  
+        <input class="input" id="choice-2" name="choice-2"></input>
+        <input class="input" id="choice-3" name="choice-3"></input>
+        <input class="input" id="choice-4" name="choice-4"></input>
+        <input class="input" id="choice-5" name="choice-5"></input>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary button is-light">create</button>
       </div>
     </form>
   </div>
 
   {{#if ideas.length}}
   <div class="col-md-6 idea-list">
-    <h3>Current Idears:</h3>
-
+    <h3>current idears:</h3>
+    <div class="box">
     {{#each ideas as |idea|}}
+    <div class="box">
     <div class="row mb-2">
       <div class="col-md-8">
         <h4><a href="/idea/{{idea.id}}">{{idea.idea}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{idea.id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger button is-danger is-light" data-id="{{idea.id}}">delete</button>
       </div>
+    </div>
     </div>
     {{/each}}
   </div>
   {{/if}}
 </div>
-
+</div>
 <script src="./js/profile.js"></script>
