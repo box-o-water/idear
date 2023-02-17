@@ -9,7 +9,7 @@ const { route } = require('./userRoutes');
 // Middleware for userRoutes, ideaRoutes, and voteRoutes
 router.use('/users', userRoutes);
 router.use('/ideas', ideaRoutes);
- router.use('/vote', voteRoutes); 
+router.use('/vote', voteRoutes); 
 // router.use('/choices', choiceRoutes);
 
 module.exports = router;
