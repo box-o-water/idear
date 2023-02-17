@@ -68,9 +68,9 @@ router.put('/', withAuth, async (req, res) => {
         //update choice table with vote count 
         if (change_count_by){
           if (increment){
-              await Choice.increment('votes', { by: change_count_by, where: { id: choice_id }})
+              await Choice.increment('votes_count', { by: change_count_by, where: { id: choice_id }})
           } else {
-              await Choice.decrement('votes', { by: change_count_by, where: { id: choice_id }})
+              await Choice.decrement('votes_count', { by: change_count_by, where: { id: choice_id }})
           }
         }
   

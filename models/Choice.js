@@ -15,7 +15,7 @@ Choice.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    votes: {
+    votes_count: {
       type: DataTypes.INTEGER,
       defaultValue: 0,
     },

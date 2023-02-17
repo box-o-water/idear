@@ -21,6 +21,11 @@ Choice.belongsTo(Idea, {
   foreignKey: 'idea_id',
 });
 
+Choice.hasMany(Vote, {
+  foreignKey: 'choice_id',
+  onDelete: 'CASCADE',
+});
+
 User.hasMany(Vote, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
