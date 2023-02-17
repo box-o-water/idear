@@ -1,10 +1,12 @@
 # idear
-https://obscure-scrubland-83700.herokuapp.com/ 
 
   [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
   ## Description
-  ideas in motion: idear is an idea app that allows users to post a question along with choices in order to get input from other users.
+  [Link to deployed app](https://idear.herokuapp.com/)
+  
+  
+  idear: ideas in motion - is an idea app that allows users to post a question along with choices in order to get input from other users.
 
   ## Table of Contents
   - [Installation Instructions](#Installation)
@@ -28,7 +30,7 @@ https://obscure-scrubland-83700.herokuapp.com/
   This Project can be tested by logging into the site, signing up for an account, creating an idea with choices, deleting an idea, and voting on other ideas.
 
   ## Questions?
-  - Github link: https://github.com/box-o-water/projet_deux 
+  [Github link](https://github.com/box-o-water/projet_deux) 
   
   ## License
-    This project is covered under the ISC license.(https://www.isc.org/licenses/)
+  [This project is covered under the ISC license.](https://www.isc.org/licenses/)
